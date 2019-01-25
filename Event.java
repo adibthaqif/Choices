@@ -8,8 +8,8 @@
 public class Event {
 
     //Initialize variables
-    public String text;
-    public int reward, punishment;
+    private String text;
+    private int reward, punishment;
 
     //CONSTRUCTOR. Takes in String text which will describe the specific event, and two int values that determine
     //the percentage added (for the reward) or deducted (for the punishment) from the running total.
@@ -34,7 +34,7 @@ public class Event {
 
     //toString() method that prints out the Event's text, followed by both the reward and punishment values.
     public String toString() {
-        return "Event: " + text +"\nReward: " + reward + "% \tPunishment: " + punishment + "%";
+        return "Event: " + text +"\nReward: +" + reward + "% \tPunishment: " + punishment + "%";
     }
 
 }
