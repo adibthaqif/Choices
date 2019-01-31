@@ -1,0 +1,15 @@
+E: You were invited to a super bowl party, do you go?
+	Y: 5
+	N: -3
+E: There is a family dinner tonight, do you go?
+	Y: 10
+	N: -6
+E: Your roommate has a band recital, do you go?
+	Y: 3
+	N: 0
+E: It's dead week, do you take a day to relax?
+	Y: 5
+	N: -2
+E: Your mother is in the hospital, do you go see her?
+	Y: 8
+	N: -10

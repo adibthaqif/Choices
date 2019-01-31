@@ -1,0 +1,15 @@
+E: Early class today, do you go to class?
+	Y: 5
+	N: -2
+E: Quiz tomorrow, study tonight?
+	Y: 5
+	N: -10
+E: It's the weekend, do you do homework?
+	Y: 3
+	N: -3
+E: New Assignment, do you get a head start?
+	Y: 0
+	N: 0
+E: The professor is offering extra credit, do you do it?
+	Y: 1
+	N: 0
