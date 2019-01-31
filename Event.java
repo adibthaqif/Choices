@@ -58,15 +58,16 @@ public class Event {
     //delete() method that deletes the data in the text, reward, and punishment field's and returns an empty Event
     //object.
     public void delete() {
-        this.text = "";
+        this.text = null;
         this.reward = 0;
         this.punishment = 0;
     }
-    
+
     //isEmpty() method to check if the text field is null. If null, return true; else return false.
     public boolean isEmpty() {
-        return (this.text == "");
+        return (this.text == null);
     }
-    
+
 } //End of Class
+
 
