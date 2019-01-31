@@ -42,7 +42,7 @@ public class Event {
     //Throws an IllegalStateException if the Event object is not null when trying to add these fields.
     //Throws an IllegalArgumentException if the reward value is negative, or if the punishment value is positive.
     public void add(String data, int newReward, int newPunishment) {
-        if (this.text != null) {
+        if (!isEmpty()) {
             throw new IllegalStateException("You can only add to an empty Event object!");
         } else if (newReward < 0) {
             throw new IllegalArgumentException("Rewards must be positive!");
@@ -61,6 +61,11 @@ public class Event {
         this.text = "";
         this.reward = 0;
         this.punishment = 0;
+    }
+    
+    //isEmpty() method to check if the text field is null. If null, return true; else return false.
+    public boolean isEmpty() {
+        return (this.text == "");
     }
     
 } //End of Class
