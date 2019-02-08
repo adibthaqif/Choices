@@ -1,15 +1,15 @@
-Early class today, do you go to class?
+(School) Early class today, do you go to class?
 5
 -2
-Quiz tomorrow, study tonight?
+(School) Quiz tomorrow, study tonight?
 5
 -10
-It's the weekend, do you do homework?
+(School) It's the weekend, do you do homework?
 3
 -3
-New Assignment, do you get a head start?
+(School) New Assignment, do you get a head start?
 0
 0
-The professor is offering extra credit, do you do it?
+(School) The professor is offering extra credit, do you do it?
 1
 0
