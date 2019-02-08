@@ -18,7 +18,9 @@ public class ChoicesManager {
    //private int punishment;
    //private String prompt;
    private static int size = 5;
-   private static ArrayList<Event> eventArray = new ArrayList<Event>();
+   private static ArrayList<Event> eventSchool = new ArrayList<Event>();
+   private static ArrayList<Event> eventWork = new ArrayList<Event>();
+   private static ArrayList<Event> eventLife = new ArrayList<Event>();
   
 
    public static void main(String[] args)throws FileNotFoundException {
@@ -44,24 +46,48 @@ public class ChoicesManager {
       while(scanner.hasNextLine()){
       
          //store first string, first int and second int in event object
+         
          String prompt = scanner.nextLine();
+         String [] split = prompt.split(":");
+         String aspect = split[0];
+         //System.out.println("aspect = " + aspect);
+          
+         if(aspect.equals("LIFE")){
+            //System.out.println(aspect[0]);
+            String reward = scanner.nextLine();
+            Integer rewardInt = Integer.valueOf(reward);
+            String punishment = scanner.nextLine();
+            Integer punishmentInt = Integer.valueOf(punishment);
+            Event event = new Event(prompt,rewardInt,punishmentInt);
+            eventLife.add(event);
+         }else if(aspect.equals("SCHOOL")){
+            //System.out.println(aspect[0]);
+            String reward = scanner.nextLine();
+            Integer rewardInt = Integer.valueOf(reward);
+            String punishment = scanner.nextLine();
+            Integer punishmentInt = Integer.valueOf(punishment);
+            Event event = new Event(prompt,rewardInt,punishmentInt);
+            eventSchool.add(event);
+         }else if(aspect.equals("WORK")){
+            //System.out.println(aspect[0]);
+            String reward = scanner.nextLine();
+            Integer rewardInt = Integer.valueOf(reward);
+            String punishment = scanner.nextLine();
+            Integer punishmentInt = Integer.valueOf(punishment);
+            Event event = new Event(prompt,rewardInt,punishmentInt);
+            eventWork.add(event);
          
-         String reward = scanner.nextLine();
-         Integer rewardInt = Integer.valueOf(reward);
+         }
          
-         String punishment = scanner.nextLine();
-         Integer punishmentInt = Integer.valueOf(punishment);
-      
-         Event event = new Event(prompt,rewardInt,punishmentInt);
-         eventArray.add(event);
       
       }
       
-      for (Event e : eventArray){
-         System.out.println(e.toString());
+      for (Event e : eventSchool){
+         System.out.println(e.toString());a
       
       
       }
+      
    }
 
    
