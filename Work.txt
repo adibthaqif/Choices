@@ -1,15 +1,15 @@
-E: Coworker called out, pick up extra shift?
-	Y: 5
-	N: 0
-E: You have a shift before classes, call out?
-	Y: -10
-	N: 1
-E: You have a closing shift on Thanksgiving, call out?
-	Y: -3
-	N: 6
-E: 3 hour shift today, take 15 more minutes for break?
-	Y: -6
-	N: 2
-E: You have a test tomorrow, call out and study?
-	Y: 0
-	N: 5
+Coworker called out, pick up extra shift?
+5
+0
+You have a shift before classes, do you go?
+0
+-3
+You have a closing shift on Thanksgiving, skip thanksgiving?
+3
+-6
+3 hour shift today, take a shorter break?
+6
+-2
+You have a test tomorrow, do you go to work?
+0
+-5
