@@ -1,15 +1,15 @@
-(Work) Coworker called out, pick up extra shift?
+WORK: Coworker called out, pick up extra shift?
 5
 0
-(Work) You have a shift before classes, do you go?
+WORK: You have a shift before classes, do you go?
 0
 -3
-(Work) You have a closing shift on Thanksgiving, skip thanksgiving?
+WORK: You have a closing shift on Thanksgiving, skip thanksgiving?
 3
 -6
-(Work) 3 hour shift today, take a shorter break?
+WORK: 3 hour shift today, take a shorter break?
 6
 -2
-(Work) You have a test tomorrow, do you go to work?
+WORK: You have a test tomorrow, do you go to work?
 0
 -5

@@ -1,15 +1,15 @@
-(Life) You were invited to a super bowl party, do you go?
+LIFE: You were invited to a super bowl party, do you go?
 5
 -3
-(Life) There is a family dinner tonight, do you go?
+LIFE: There is a family dinner tonight, do you go?
 10
 6
-(Life) Your roommate has a band recital, do you go?
+LIFE: Your roommate has a band recital, do you go?
 3
 0
-(Life) It's dead week, do you take a day to relax?
+LIFE: It's dead week, do you take a day to relax?
 5
 -2
-(Life) Your mother is in the hospital, do you go see her?
+LIFE: Your mother is in the hospital, do you go see her?
 8
 -10
