@@ -9,8 +9,7 @@
 */
 
 import java.io.*;
-import java.util.Scanner;
-import java.util.Hashtable;
+import java.util.*;
 
 
 public class ChoicesManager {
@@ -19,8 +18,8 @@ public class ChoicesManager {
    //private int punishment;
    //private String prompt;
    private static int size = 5;
-   private Event[] eventArray = new Event[size];
-   private static int count = 0;
+   private static ArrayList<Event> eventArray = new ArrayList<Event>();
+  
 
    public static void main(String[] args)throws FileNotFoundException {
    
@@ -36,30 +35,38 @@ public class ChoicesManager {
    
    }
 
-   public static void choicesManage(String file){
+   public static void choicesManage(String file)throws FileNotFoundException{
    
       File fileName = new File(file);
       Scanner scanner = new Scanner(fileName);
+     
    
       while(scanner.hasNextLine()){
       
-         //store first string, first int and second int in event objec
+         //store first string, first int and second int in event object
          String prompt = scanner.nextLine();
-         int reward = scanner.nextInt();
-         int punishment = scanner.nextInt();
+         
+         String reward = scanner.nextLine();
+         Integer rewardInt = Integer.valueOf(reward);
+         
+         String punishment = scanner.nextLine();
+         Integer punishmentInt = Integer.valueOf(punishment);
       
-         Event event = new Event(prompt,reward,punishment);
+         Event event = new Event(prompt,rewardInt,punishmentInt);
+         eventArray.add(event);
       
-         eventArray[count] = event;
-         count++;
+      }
+      
+      for (Event e : eventArray){
+         System.out.println(e.toString());
+      
+      
       }
    }
 
-   public String printEvent(){
-      return Event.toString();
    
-   }
-
+   
+  
 
 
 }
