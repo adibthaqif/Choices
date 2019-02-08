@@ -3,7 +3,7 @@ LIFE: You were invited to a super bowl party, do you go?
 -3
 LIFE: There is a family dinner tonight, do you go?
 10
-6
+-6
 LIFE: Your roommate has a band recital, do you go?
 3
 0
