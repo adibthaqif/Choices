@@ -2,8 +2,10 @@ import java.util.*;
 public class EventHashTable {
 
     private int size = 0;
-    private int maxSize, hashAlgorithm, index;
+    private int maxSize, hashAlgorithm, index, key, value;
     private int[] eventHashTable; //change [] type to event
+    private Event e1, e2;
+    private Random rand;
 
     public EventHashTable(int maxSize) {
         this.size = size;
@@ -52,19 +54,25 @@ public class EventHashTable {
 
     }
 
-    //public int getValue() { //change to Event
-      //  return value;
-    //}
+    public int get(int key) {
+        switch (key) {
+            case 3:
+                int randNum1 = rand.nextInt((maxSize / 3));
+                value = eventHashTable[randNum1];
+            case 4:
+                int randNum2 = rand.nextInt(((maxSize * 2 ) / 3) - 1);
+                value = eventHashTable[randNum2];
+            case 5:
+                int randNum3 = rand.nextInt(maxSize);
+                value = eventHashTable[randNum3];
+        }
+        return value;
+    }
 
-    //public int getKey() {
-      //  return key;
-    //}
+
 
     public void printHashTable() {
         for (int x : eventHashTable) {
             System.out.print(x + ", ");
         }
     }
-
-
-}
