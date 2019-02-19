@@ -2,10 +2,12 @@ import java.util.*;
 public class EventHashTable {
 
     private int size = 0;
-    private int maxSize, hashAlgorithm, index, key, value;
+    private int maxSize, hashAlgorithm, index, value, min, max;
+    private int random = 0;
     private int[] eventHashTable; //change [] type to event
     private Event e1, e2;
-    private Random rand;
+    private Random rand = new Random();
+    private boolean flag = true;
 
     public EventHashTable(int maxSize) {
         this.size = size;
@@ -54,25 +56,46 @@ public class EventHashTable {
 
     }
 
+    public boolean isEmpty() {
+        for (int i = 0; i < maxSize; i++) {
+            if (eventHashTable[i] != 0) {
+                flag = false;
+            }
+        }
+        return flag;
+    }
+
     public int get(int key) {
         switch (key) {
             case 3:
-                int randNum1 = rand.nextInt((maxSize / 3));
-                value = eventHashTable[randNum1];
+                min = 0;
+                max = (maxSize / 3) - 1;
+                random = rand.nextInt((max + 1 - min) + min);
+                value = eventHashTable[random];
+                break;
             case 4:
-                int randNum2 = rand.nextInt(((maxSize * 2 ) / 3) - 1);
-                value = eventHashTable[randNum2];
+                min = (maxSize / 3); //4
+                max = ((maxSize * 2) / 3) - 1; //7
+                random = rand.nextInt(max + 1 - min) + min;
+                value = eventHashTable[random];
+                break;
             case 5:
-                int randNum3 = rand.nextInt(maxSize);
-                value = eventHashTable[randNum3];
+                min = ((maxSize * 2) / 3);
+                max = (maxSize - 1);
+                random = rand.nextInt(max + 1 - min) + min;
+                value = eventHashTable[random];
+                break;
         }
         return value;
     }
 
 
-
     public void printHashTable() {
-        for (int x : eventHashTable) {
-            System.out.print(x + ", ");
+        for (int i = 0; i < maxSize; i++) {
+            System.out.print(eventHashTable[i] + ", ");
         }
+        System.out.println();
     }
+
+
+}
