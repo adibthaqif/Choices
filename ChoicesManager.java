@@ -12,85 +12,48 @@ import java.util.*;
 
 
 public class ChoicesManager {
-   private Event event;
-   //private int reward;
-   //private int punishment;
-   //private String prompt;
-   private static int size = 5;
-   private static ArrayList<Event> eventSchool = new ArrayList<Event>();
-   private static ArrayList<Event> eventWork = new ArrayList<Event>();
-   private static ArrayList<Event> eventLife = new ArrayList<Event>();
-  
+    private static Event event;
+    private static int key;
+    private static EventHashTable table = new EventHashTable(9);
 
-   public static void main(String[] args)throws FileNotFoundException {
-   
-      Scanner console = new Scanner(System.in);
-      System.out.println("Please input file name");
-      String fileName = console.nextLine();
-   
-      if(fileName == null) {
-         throw new IllegalArgumentException();
-      }
-   
-      choicesManage(fileName);
-   
-   }
 
-   public static void choicesManage(String file)throws FileNotFoundException{
-   
-      File fileName = new File(file);
-      Scanner scanner = new Scanner(fileName);
-     
-   
-      while(scanner.hasNextLine()){
-      
-         //store first string, first int and second int in event object
-         
-         String prompt = scanner.nextLine();
-         String [] split = prompt.split(":");
-         String aspect = split[0];
-         //String prompt = split[1];
-         
-         if(aspect.equals("LIFE")){
-            //System.out.println(aspect[0]);
-            String reward = scanner.nextLine();
-            Integer rewardInt = Integer.valueOf(reward);
-            String punishment = scanner.nextLine();
-            Integer punishmentInt = Integer.valueOf(punishment);
-            Event event = new Event(prompt,rewardInt,punishmentInt);
-            eventLife.add(event);
-            System.out.println(event);
-         }else if(aspect.equals("SCHOOL")){
-            //System.out.println(aspect[0]);
-            String reward = scanner.nextLine();
-            Integer rewardInt = Integer.valueOf(reward);
-            String punishment = scanner.nextLine();
-            Integer punishmentInt = Integer.valueOf(punishment);
-            Event event = new Event(prompt,rewardInt,punishmentInt);
-            eventSchool.add(event);
-         }else if(aspect.equals("WORK")){
-            //System.out.println(aspect[0]);
-            String reward = scanner.nextLine();
-            Integer rewardInt = Integer.valueOf(reward);
-            String punishment = scanner.nextLine();
-            Integer punishmentInt = Integer.valueOf(punishment);
-            Event event = new Event(prompt,rewardInt,punishmentInt);
-            eventWork.add(event);
-         
-         }
-         
-      
-      }
-      
-      for (Event e : eventSchool){
-         System.out.println(e.toString());
-      
-      
-      }
-      
-   }
+    public static void main(String[] args)throws FileNotFoundException {
 
-   
-   
- 
+        Scanner console = new Scanner(System.in);
+        System.out.println("Please input file name");
+        String fileName = console.nextLine();
+
+        if(fileName == null) {
+            throw new IllegalArgumentException();
+        }
+
+        choicesManage(fileName);
+
+    }
+
+    public static void choicesManage(String file)throws FileNotFoundException {
+
+        File fileName = new File(file);
+        Scanner scanner = new Scanner(fileName);
+
+        while(scanner.hasNextLine()){
+
+            String aspect = scanner.nextLine();
+            key = aspect.length();
+            String eventStr = scanner.nextLine();
+            Integer reward = Integer.valueOf(scanner.nextLine());
+            Integer punishment = Integer.valueOf(scanner.nextLine());
+            event = new Event(eventStr, reward, punishment);
+            table.put(key, event);
+
+        }
+
+        table.printHashTable();
+        System.out.println();
+        System.out.println(table.get(3));
+    }
+
+
+
+
 }
