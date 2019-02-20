@@ -1,29 +1,29 @@
 import java.util.*;
 public class EventHashTable {
 
-    private int size = 0;
-    private int maxSize, hashAlgorithm, index, value, min, max;
+    private static int size = 0;
+    private static int maxSize, hashAlgorithm, index, min, max;
     private int random = 0;
-    private int[] eventHashTable; //change [] type to event
-    private Event e1, e2;
-    private Random rand = new Random();
-    private boolean flag = true;
+    private static Event[] eventHashTable;
+    private static Event e1, e2, value;
+    private static Random rand = new Random();
+    private static boolean flag = true;
 
     public EventHashTable(int maxSize) {
         this.size = size;
         this.maxSize = maxSize;
-        eventHashTable = new int[maxSize]; //change [] type to event
+        eventHashTable = new Event[maxSize];
     }
 
-    public void put(int key, int value) { //change val to Event type
+    public static void put(int key, Event value) {
         hashAlgorithm = key % maxSize;
         switch (hashAlgorithm) {
             case 3:
                 index = 0;
-                while (eventHashTable[index] != 0 && index <= (maxSize/3) - 1) {
+                while (eventHashTable[index] != null && index <= (maxSize/3) - 1) {
                     index = index + 1;
                 }
-                if (eventHashTable[index] == 0) {
+                if (eventHashTable[index] == null) {
                     eventHashTable[index] = value;
                     break;
                 } else {
@@ -32,10 +32,10 @@ public class EventHashTable {
 
             case 4:
                 index = (maxSize / 3);
-                while (eventHashTable[index] != 0 && index <= ((maxSize * 2) / 3) - 1) {
+                while (eventHashTable[index] != null && index <= ((maxSize * 2) / 3) - 1) {
                     index = index + 1;
                 }
-                if (eventHashTable[index] == 0) {
+                if (eventHashTable[index] == null) {
                     eventHashTable[index] = value;
                     break;
                 } else {
@@ -43,10 +43,10 @@ public class EventHashTable {
                 }
             case 5:
                 index = ((maxSize * 2) / 3);
-                while (eventHashTable[index] != 0) {
+                while (eventHashTable[index] != null) {
                     index = index + 1;
                 }
-                if (eventHashTable[index] == 0) {
+                if (eventHashTable[index] == null) {
                     eventHashTable[index] = value;
                     break;
                 } else {
@@ -58,14 +58,14 @@ public class EventHashTable {
 
     public boolean isEmpty() {
         for (int i = 0; i < maxSize; i++) {
-            if (eventHashTable[i] != 0) {
+            if (eventHashTable[i] != null) {
                 flag = false;
             }
         }
         return flag;
     }
 
-    public int get(int key) {
+    public Event get(int key) {
         switch (key) {
             case 3:
                 min = 0;
@@ -92,7 +92,12 @@ public class EventHashTable {
 
     public void printHashTable() {
         for (int i = 0; i < maxSize; i++) {
-            System.out.print(eventHashTable[i] + ", ");
+            if (eventHashTable[i] == null) {
+                System.out.println("null");
+            }
+            else {
+                System.out.print(eventHashTable[i].toString() + "\n");
+            }
         }
         System.out.println();
     }
