@@ -26,7 +26,7 @@ public class Main
 	
 	public static void play()
 	{
-		
+		//ChoicesManager();
 		eventCounter=eventCounter++;
 	}
 	
