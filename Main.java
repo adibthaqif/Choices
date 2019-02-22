@@ -1,4 +1,3 @@
-package hashTable;
 /*Whatcom Community College - Winter 2019
 CS240 Data Structures and Algorithm Analysis
 Professor Ryan Parsons
@@ -17,7 +16,7 @@ public class Main
 			while(!isRoundOver(eventCounter)==true)
 			{
 				//play();
-				eventCounter=eventCounter++;
+				
 				
 				
 				round=round++;
@@ -28,7 +27,19 @@ public class Main
 	public static void play()
 	{
 		
+		eventCounter=eventCounter++;
 	}
+	
+	public static void save()
+    {
+    
+    }
+    
+    public static void quit()
+    {
+    
+    }
+    
 	public static void viewHighScore()
 	{
 		
