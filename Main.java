@@ -27,17 +27,24 @@ public class Main
 	public static void play()
 	{
 		//ChoicesManager();
+        //aspectCounter();
+        //viewHighScore();
+        //save();
+        //quit();
 		eventCounter=eventCounter++;
 	}
 	
 	public static void save()
     {
-    
+    	//if(keyPress=='s')
+		//
     }
     
     public static void quit()
     {
-    
+        /*if(keyPress=='q')
+        return isGameOver=true;
+         */
     }
     
 	public static void viewHighScore()
