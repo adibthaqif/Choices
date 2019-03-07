@@ -2,35 +2,41 @@
  CS240 Data Structures and Algorithm Analysis
  Professor Ryan Parsons
  AUTHORS: Adib Thaqif, Andrew Jacobi, Donald Strong, and Micah Miller
- Heap implementation for choosing an event in the rewards feature. 
+ Heap implementation for choosing an event in the help feature. 
  Implemented using an array
+ 
+ Problems: exceptions, Floyd's method not used 
+           change mutators:
+           deleteMin, insert, percolate Up and Down to consider the heap property
  
 */
 import java.io.*;
 import java.util.*;
-import java.util.Comparator;
+import java.lang.Exception.*;
 
 public class EventHeap{
-   private int[] Heap;
+   private Event[] Heap;
    private int size = 0;
    private int maxSize;
+   //private int eventValue = 0;
 
    public EventHeap(int maxSize){
       this.size = size;
       this.maxSize = maxSize;
-      Heap = new int[maxSize + 1];
+      Heap = new Event[maxSize + 1];
+      //this.eventValue = event.reward + Math.abs(event.punishment);
       
    }
    
-   private int parent(int pos){
+   public Event parent(int pos){
       return Heap[pos/2];
    }
    
-   private int leftChild(int pos){
+   public Event leftChild(int pos){
       return Heap[2*pos];
    }
    
-   private int rightChild(int pos){
+   public Event rightChild(int pos){
       return Heap[2*pos + 1];
    }
    
@@ -42,64 +48,74 @@ public class EventHeap{
       return (size == 0);
    }
    
+   private int eventValue(Event event){
+      int x = 0;
+      if(event != null){
+         x = event.reward + Math.abs(event.punishment);
+      }
+      return x;
+   }
+   
    private boolean isFull(){
       return (size == Heap.length-1); 
    }
    
    public String toString(){
-    //   if(isEmpty()){
-   //          throw new IllegalArgumentException();
-   //       }
+      if(isEmpty()){
+         throw new IllegalArgumentException();
+      }
       return Arrays.toString(Heap);
    }
    
-   private int findMin(){
+   
+   private Event findMin(){
       if(isEmpty()){
-         throw new IllegalArgumentException("Heap is empty");
+         throw new ArrayStoreException("Heap is empty");
       }
       return Heap[1];
    }
-   
    private void emptyHeap(){
-      size = 0;
+      for(int i = 0; i < size; i++){
+         Heap[i] = null;
+      }
    }
+  
    
    private void resize(){
-      size++;
+      if(size == maxSize - 1){
+         throw new IllegalArgumentException("Size of heap is full!");
+      }
      
    }
    
-  //  public String toString(){
-//    return 
-//    
-//    }
-    
-   public void insert(int value){
+   
+   public void insert(Event event){
       if (isFull()){
-         
+         resize();
       }
       size++;
       //System.out.println("size = " + size);
       //Heap[size+1] = value;
-      int i = percolateUp(size,value);
-      Heap[i] = value;
+      int i = percolateUp(size,event);
+      Heap[i] = event;
       
    }
-   
-   public int deleteMin(){
+   //check aspect values first
+   //add from hashtable storage. 
+   public void deleteMin(){
       if(isEmpty()){
          throw new IllegalArgumentException();
       }
-      int minItem = Heap[1];
+      Event minEvent = Heap[1];
       int hole = percolateDown(1,Heap[size]);
       Heap[hole] = Heap[size];
       size--;
-      return minItem;
+      //return minEvent;
    }
    
-   private int percolateUp(int hole, int value){
+   private int percolateUp(int hole, Event event){
       //System.out.println(Heap[hole/2] + "");
-      while(hole > 1 && (value < Heap[hole/2])){
+      while(hole > 1 && eventValue(event) < eventValue(Heap[hole/2])){
          Heap[hole] = Heap[hole/2];
          hole = hole/2;
       }
@@ -107,20 +123,20 @@ public class EventHeap{
       //System.out.println(hole);
    }
    
-   private int percolateDown(int hole, int value){
+   private int percolateDown(int hole, Event event){
       int target;
       while(!isLeaf(hole)){
          int left = 2*hole;
          int right = left + 1;
          
-         if(Heap[left] < Heap[right] || right > size){
+         if(eventValue(Heap[left]) < eventValue(Heap[right]) || (right > size)){
             target = left;   
          
          }else{
             target = right;
          }
          
-         if(Heap[target] < value){
+         if(eventValue(Heap[target]) < eventValue(event)){
             Heap[hole] = Heap[target];
             hole = target;
          }else{
@@ -133,9 +149,9 @@ public class EventHeap{
    //using Floyd's method to buildHeap
    public void buildHeap(){
       for (int i = size/2; i > 0; i--){
-         int value = Heap[i];
-         int hole = percolateDown(i,value);
-         Heap[hole] = value;
+         Event event = Heap[i];
+         int hole = percolateDown(i,event);
+         Heap[hole] = event ;
       }
    }
    
