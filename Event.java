@@ -8,13 +8,15 @@
 public class Event {
 
     //Initialize variables
-    private String text;
-    private int reward, punishment;
+    public String aspect, text;
+    public int reward, punishment;
+    public boolean played;
 
     //CONSTRUCTOR. Takes in String text which will describe the specific event, and two int values that determine
     //the percentage added (for the reward) or deducted (for the punishment) from the running total.
     //Throws an IllegalArgumentException if the reward is negative and/or the punishment is positive.
-    public Event(String text, int reward, int punishment) {
+    public Event(String aspect, String text, int reward, int punishment) {
+        this.aspect = aspect;
         this.text = text;
         if (reward < 0) {
             throw new IllegalArgumentException("Rewards must be positive!");
@@ -58,14 +60,36 @@ public class Event {
     //delete() method that deletes the data in the text, reward, and punishment field's and returns an empty Event
     //object.
     public void delete() {
+        this.aspect = null;
         this.text = null;
         this.reward = 0;
         this.punishment = 0;
+    }
+
+    public String getAspect() {
+        return this.aspect;
+    }
+
+    public int getReward() {
+        return this.reward;
+    }
+
+    public int getPunishment() {
+        return this.punishment;
+    }
+
+    public String getEvent() {
+        return this.text;
+    }
+
+    public int getEventHashCode() {
+        return this.text.hashCode();
     }
 
     //isEmpty() method to check if the text field is null. If null, return true; else return false.
     public boolean isEmpty() {
         return (this.text == null);
     }
+
 
 } //End of Class
