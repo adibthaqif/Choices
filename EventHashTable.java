@@ -1,8 +1,8 @@
 import java.util.*;
 public class EventHashTable {
 
-    private static int size = 0;
-    private static int maxSize, hashAlgorithm, index, min, max;
+    public static int size = 0;
+    public static int maxSize, hashAlgorithm, index, min, max;
     private int random = 0;
     private static Event[] eventHashTable;
     private static Event e1, e2, value;
@@ -66,24 +66,37 @@ public class EventHashTable {
     }
 
     public Event get(int key) {
+
         switch (key) {
             case 3:
                 min = 0;
                 max = (maxSize / 3) - 1;
                 random = rand.nextInt((max + 1 - min) + min);
-                value = eventHashTable[random];
+                if (eventHashTable[random] != null) {
+                    value = eventHashTable[random];
+                } else {
+                    get(key);
+                }
                 break;
             case 4:
                 min = (maxSize / 3); //4
                 max = ((maxSize * 2) / 3) - 1; //7
                 random = rand.nextInt(max + 1 - min) + min;
-                value = eventHashTable[random];
+                if (eventHashTable[random] != null) {
+                    value = eventHashTable[random];
+                } else {
+                    get(key);
+                }
                 break;
             case 5:
                 min = ((maxSize * 2) / 3);
                 max = (maxSize - 1);
                 random = rand.nextInt(max + 1 - min) + min;
-                value = eventHashTable[random];
+                if (eventHashTable[random] != null) {
+                    value = eventHashTable[random];
+                } else {
+                    get(key);
+                }
                 break;
         }
         return value;
