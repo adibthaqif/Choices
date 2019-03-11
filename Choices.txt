@@ -1,0 +1,48 @@
+LIFE
+Do you want to go to the mall?
+5
+-3
+LIFE
+Do you want to go to the movies?
+7
+-4
+LIFE
+Do you go out this weekend with friends?
+10
+-6
+LIFE
+Do you visit your family in your free time?
+8
+-3
+JOB
+Do you want to call in sick?
+10
+-8
+JOB
+Do you want to stay late at the office?
+15
+-6
+JOB
+Do you accept a promotion even though it means working longer hours?
+15
+-10
+JOB
+Do you take vacation even though its a busy part of the fiscal year?
+8
+-12
+CLASS
+Do you do your homework?
+8
+-3
+CLASS
+Do you study for your upcoming exam?
+12
+-9
+CLASS
+Do you skip class to hangout with friends?
+2
+-15
+CLASS
+Do you stay up late doing homework?
+8
+-8
