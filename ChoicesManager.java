@@ -51,33 +51,34 @@ public class ChoicesManager {
                 System.out.println("Enter 'y' for new game, 'n' to load a previous game.");
                 String answer = console.nextLine();
 
-                while(!isGameOver(round,AspectMap)){
-                    load();
+                while(!isGameOver(round,AspectMap)) {
 
                     //User wants to start a new game
                     if (answer.equalsIgnoreCase("y")) {
-                        //load();
+                        load();
                         play();
                         round++;
 
                     }
                     //User wants to load a previously saved game
                     else if (answer.equalsIgnoreCase("n")) {
-                        //loadSaved();
+                        loadSaved();
+                        play();
+                        round++;
+
                     }
                 }
 
             } else if (command.equalsIgnoreCase("s")) {
-                System.out.println("Please input file name for the game to be saved");
-                String fileName = console.nextLine();
-                PrintStream out = new PrintStream(new File(fileName));
-                save(console, out);
+                System.out.println("Saving to Choice_Saved.txt...");
+                save();
                 System.out.println("Saved!");
-                printCommands();
 
-            }else if (command.equalsIgnoreCase("q")) {
-                if (isGameSaved()) {
-                    //export to file
+            } else if (command.equalsIgnoreCase("q")) {
+                System.out.println("Would you like to save your current game?");
+                String answer = console.next();
+                if (answer.equalsIgnoreCase("y)")) {
+                    save();
                     quit();
                 } else {
                     System.out.println("Thanks for playing!");
@@ -138,23 +139,43 @@ public class ChoicesManager {
 
     //Builds the heap with stuff in hashtable
     public static void load() {
-        Event playEvent = new Event();
-        //Keep inserting until Heap is full...
-        while (!heap.isFull()) {
-            //If random selected index is null, try again. Else, insert
-            int n = new Random().nextInt(3) + 3;
-            playEvent = table.get(n);
-            heap.insert(playEvent);
-            //return heap;
-        }
+
     }
 
-    public static void printAspect(){
+    public static void loadSaved() {
+
+        try {
+            ArrayList<Event> list = new ArrayList<Event>();
+            System.out.println("Loading from Choices_Saved.txt...");
+            File infile = new File("Choices_Saved.txt");
+            Scanner scanner = new Scanner(infile);
+            while(scanner.hasNextLine()){
+                String aspect = scanner.nextLine();
+                int key = aspect.length();
+                String eventStr = scanner.nextLine();
+                Integer reward = Integer.valueOf(scanner.nextLine());
+                Integer punishment = Integer.valueOf(scanner.nextLine());
+                event = new Event(aspect, eventStr, reward, punishment);
+                list.add(event);
+            }
+
+            for (Event e : list) {
+                heap.insert(e);
+            }
+
+        } catch (FileNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
+
+
+    }
+
+    public static void printAspect() {
         System.out.println();
         System.out.println("-----------------------------------------------------------------------------------------");
         System.out.println("|                         Your current aspect scores are...                             |");
         System.out.println("|\t\t\t\t\t\t Work: " + AspectMap.get("job") + "\tLife: " + AspectMap.get("life") +
-                                                           "\tSchool: " + AspectMap.get("class") + "\t\t\t\t\t\t\t\t|");
+                "\tSchool: " + AspectMap.get("class") + "\t\t\t\t\t\t\t\t|");
         System.out.println("-----------------------------------------------------------------------------------------");
         System.out.println();
     }
@@ -173,14 +194,23 @@ public class ChoicesManager {
         heap.insert(table.get(n));
         Graveyard.add(current);
 
-
     }
 
-    public static void save(Scanner console, PrintStream output){
-        for(int i = 0; i < heap.maxSize; i++){
-            output.println(heap.get(i));
+    public static void save() {
+        try {
+            File outfile = new File("Choices_Saved.txt");
+            PrintStream output = new PrintStream(outfile);
+            for (int i = 1; i < heap.maxSize; i++) {
+                output.println(heap.get(i).aspect.toUpperCase());
+                output.println(heap.get(i).text);
+                output.println(heap.get(i).reward);
+                output.println(heap.get(i).punishment);
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println(e.getMessage());
         }
     }
+
     public static boolean isGameSaved(){
         return true;
     }
@@ -252,7 +282,3 @@ public class ChoicesManager {
 
 
 } //End of class.
-    
-   
-  
-
