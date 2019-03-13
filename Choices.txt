@@ -182,6 +182,7 @@ CLASS
 You remembered that you have a quiz today that you're not prepared for. Do you go to class?
 8
 -14
+CLASS
 Your professor cancelled class, do you take the day off (y) or spend your time studying?
 10
 -4
