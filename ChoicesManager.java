@@ -1,22 +1,11 @@
-/*Whatcom Community College - Winter 2019
-  CS240 Data Structures and Algorithm Analysis
-  Professor Ryan Parsons
-  AUTHORS: Adib Thaqif, Andrew Jacobi, Donald Strong, and Micah Miller
-  Write a manager that reads in text file, create a new event object with text as data field,
-  ints as punishment and reward fields.
-  use if else to check if it starts with  E, Y or .
-*/
-
-import java.io.*;
-import java.util.*;
 import java.io.PrintStream;
 import java.util.Scanner;
 import java.util.HashMap;
-
+//import java.util.Math;
 
 public class ChoicesManager {
    private static Event event;
-   private static EventHashTable table = new EventHashTable(23);
+   private static EventHashTable table = new EventHashTable(73);
    private static EventHeap heap = new EventHeap(6);
    private static ArrayList<Event> Graveyard = new ArrayList<Event>();
    private static HashMap<String,Integer> AspectMap = new HashMap<>();
@@ -64,8 +53,12 @@ public class ChoicesManager {
          //Command to initiate the game
          else if(command.equalsIgnoreCase("p")) {
             isPlayed = true;
-            System.out.println("Do you want to continue playing the previous game or start a new one?");
-            System.out.println("Enter 'y' for new game, 'n' to load a previous game.");
+            if(rounds <= 0){
+               System.out.println("Do you want to continue playing the previous game or start a new one?");
+               System.out.println("Enter 'y' for new game, 'n' to load a previous game.");
+            }else{
+               //System.out.println("Let's play!");
+            }
             String answer = console.nextLine(); 
                //User wants to start a new game
             if (answer.equalsIgnoreCase("y")) {
@@ -81,7 +74,7 @@ public class ChoicesManager {
                play();
                numEvents++;
                if(warning()){
-                 break;
+                  break;
                }
             }
            
@@ -118,14 +111,21 @@ public class ChoicesManager {
             System.out.println();
          }
          if(rounds!= 0){
-            System.out.println("Good job on finishing round " + rounds + "!");
-            if(rounds < 4){
-               System.out.println("Do you want to continue to round " + (rounds + 1) + "?");
-               System.out.println("Enter 'y' if yes, 'n' if no");
+            if(!warning()){
+               System.out.println("Good job on finishing round " + rounds + "!");
+               if(rounds < 4){
+                  System.out.println("Do you want to continue to round " + (rounds + 1) + "?");
+                  System.out.println("Enter 'y' if yes, 'n' if no");
+               }else{
+                  System.out.println("Good job in finishing the game!");
+                  break;
+               }
             }else{
-               System.out.println("Good job in finishing the game!");
+               System.out.println("BRO YOU LOST!!");
                break;
+            
             }
+            
             String answer = console.nextLine();
          
             if(answer.equalsIgnoreCase("y")){
@@ -136,6 +136,7 @@ public class ChoicesManager {
                System.out.println("Do you want to save your game?");
                String response = console.nextLine();
                letsSave(response);
+               save();
                command = "q";
                break;
             }
@@ -171,6 +172,19 @@ public class ChoicesManager {
       System.out.println("Final aspect values: ");
       printAspect();
    }
+   
+  //  public static void saveHighScores(String fileName){
+//       File scoreFile = new File(fileName);
+//       PrintStream output = new PrintStream(scoreFile);
+//       output.println("S : " + AspectMap.get("class"));
+//       output.println("W : " + AspectMap.get("job"));
+//       output.println("L : " + AspectMap.get("life"));
+//          
+//    }
+   
+   public static void printHighScores(){
+   
+   }
 
    //Takes in a txt file, creates Event objects, then stores them in the hashtable
    public static void choicesManage(String file)throws FileNotFoundException {
@@ -193,7 +207,7 @@ public class ChoicesManager {
    public static void printCommands() {
       System.out.println("Please select one of the following: ");
       System.out.println("\t Instructions - i");
-      System.out.println("\t Start game - p");
+      System.out.println("\t Play game - p");
       System.out.println("\t Save current game - s");
       System.out.println("\t Quit - q");
       System.out.println();
@@ -347,7 +361,7 @@ public class ChoicesManager {
       if(answer.equals(null) || event.equals(null)){
          throw new IllegalArgumentException();
       }
-      System.out.println("Event aspect: " + event.aspect.toLowerCase());
+      //System.out.println("Event aspect: " + event.aspect.toLowerCase());
       String aspect = event.aspect.toLowerCase();
       //int val = AspectMap.get(aspect); 
       if (answer.equalsIgnoreCase("y")) {
@@ -367,7 +381,6 @@ public class ChoicesManager {
       } else if (answer.equalsIgnoreCase("n")) {
          if(aspect.equalsIgnoreCase("life")){
             AspectMap.put("life", AspectMap.get("life") + event.punishment);
-            AspectMap.put("class", AspectMap.get("school") - event.punishment/2);
             AspectMap.put("job", AspectMap.get("job") - event.punishment/2);
          }else if(aspect.equalsIgnoreCase("class")){
             AspectMap.put("class", AspectMap.get("class") + event.punishment);
@@ -387,7 +400,7 @@ public class ChoicesManager {
       int s = AspectMap.get("class");
       int w = AspectMap.get("job");
       int l = AspectMap.get("life");
-      if(numEvents != 4|| s <= 25 || w <= 25 || l <= 25){
+      if(numEvents != (int)Math.pow(2,rounds)*4|| s <= 25 || w <= 25 || l <= 25){
          x = false;
       }
       return x;
