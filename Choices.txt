@@ -1,13 +1,13 @@
 LIFE
-Do you want to go to the mall?
+Do you want to go to the mall with your friends?
 5
 -3
 LIFE
-Do you want to go to the movies?
+A new movie just came out, do you go out and see it with your friends?
 7
 -4
 LIFE
-Do you go out this weekend with friends?
+A friend that you haven't seen in a while is in town and wants to go out and get drinks. Do you go?
 10
 -6
 LIFE
@@ -15,15 +15,69 @@ Do you visit your family in your free time?
 8
 -3
 LIFE
-Your mother is in the hospital, do you visit her?
-3
--10
+Mt. Baker just got a bunch of snow and you haven't been skiing in a while. Do you grab your skis and go?
+10
+-6
 LIFE
-It's your brother's birthday, do you call him?
+You're favorite video game franchise just released a new title. Do you go out and pick up a copy?
+8
+-3
+LIFE
+The sun is out and it's a beautiful day. Would you like to go outside and enjoy the weather?
 5
 -5
 LIFE
-
+A bunch of classmates are going out for a quick lunch before class, do you join them?
+8
+-6
+LIFE
+Your cousin is getting married and sent you an invitation for the wedding. Do you fly out (y) or stay home (n)?
+12
+-10
+LIFE
+You're an avid hiker when the weather is nice. The sun is out, do you go on a hike?
+5
+-3
+LIFE
+There's a new trampoline park that just opened up in town, do you go check it out?
+4
+-2
+LIFE
+A new restaurant just opened in town and everyone's raving about it. Do you go and check it out?
+6
+-3
+LIFE
+Your favorite band is performing at a venue nearby. Tickets go on sale soon, do you buy a ticket?
+12
+-4
+LIFE
+You enjoy playing soccer and notice a group who plays at a nearby park. Do you ask to join them?
+8
+-6
+LIFE
+The Seahawks are hosting the 49ers this weekend and your friend offers you a free ticket. Do you go to the game?
+12
+-12
+LIFE
+A new brewery just opened up and you've heard they have great beer. Do you go and see for yourself?
+8
+-3
+LIFE
+Your friends invited you to join them this weekend for a night out on the town, do you join them?
+9
+-7
+LIFE
+The local farmers market is tonight and you remember that it's a pretty good time. Do you go to it (y) or stay home (n)?
+5
+-3
+LIFE
+Your significant other asks you to go to dinner. Do you say yes or no to their request?
+15
+-9
+LIFE
+Do you take vacation even though its a busy part of the fiscal year?
+8
+-12
 JOB
 Do you want to call in sick?
 10
@@ -37,9 +91,73 @@ Do you accept a promotion even though it means working longer hours?
 15
 -10
 JOB
-Do you take vacation even though its a busy part of the fiscal year?
+Morale around the Office is low, do you invite your old acapella group from your days at Cornell?
+12
+-9
+JOB
+Your boss wants you to join him for lunch. Do you go with them or tell them that you're too busy?
+10
+-11
+JOB
+You're a hard worker and always finish your work well before the deadline. Do you ask your boss for a raise?
+12
+-6
+JOB
+Your boss wants you to head up a new customer outreach initiative. Do you accept the offer?
+12
+-8
+JOB
+You recieve a job offer from a rival company for more money, do you accept the offer?
 8
--12
+-8
+JOB
+Your coworker needs help on a work assignment but you're preoccupied. Do you stop what you're doing to help them?
+6
+-9
+JOB
+You've heard rumors about cutbacks. Do you ask your boss for clarification?
+6
+-10
+JOB
+You notice the office is running low on supplies and it's effecting productivity. Do you go out and buy supplies?
+8
+-4
+JOB
+Do you stay late at the office to finish up a project?
+10
+-6
+JOB
+Morale around the workplace is pretty low lately, do you throw a work party to cheer your colleagues up?
+5
+-3
+JOB
+Your coworker has been out lately and you notice her workpile increasing. Do you help her out in her absence?
+10
+-4
+JOB
+Your boss asks you for input regarding your coworkers productivity. Do you give honest feedback?
+9
+-6
+JOB
+Do you offer to work late to help the company achieve a deadline?
+11
+-8
+JOB
+Your annual performance review is today, do you ask your boss for a raise?
+5
+-7
+JOB
+You hear there's an opening for the Assistant to the Regional Manager position. Do you ask your boss for a recommendation?
+8
+-6
+JOB
+What kind of bear is best?
+8
+-9
+JOB
+You were fired as Interim Manager because you fired a gun in the office. Do you agree with your termination?
+7
+-6
 CLASS
 Do you do your homework?
 8
@@ -57,65 +175,69 @@ Do you stay up late doing homework?
 8
 -8
 CLASS
-Quiz today, do you go to class?
-1
--5
-CLASS
-Your professor canceled class, do you study?
+Do you study throughout the semester (y) or cram before an exam (n)?
 10
--5
+-14
 CLASS
-There's extra credit, do you do it?
+You remembered that you have a quiz today that you're not prepared for. Do you go to class?
+8
+-14
+Your professor cancelled class, do you take the day off (y) or spend your time studying?
 10
-0
+-4
 CLASS
-It's snowing, do you go to class?
-0
--5
-CLASS
-Midterm coming up, do you skip class to cram?
-3
--8
-CLASS
-You got a call in class, do you take it?
-0
--6
-CLASS
-Class are called early, do you stay to study?
-4
-0
-CLASS
-Your study group is meeting, do you go?
-7
+Your professor advertises an extra credit opportunity. Do you do it?
+10
 -2
 CLASS
-You procrastinated a paper, do you stay up late to finish it?
-5
--9
-CLASS
-You're worried about finals, do you study?
-5
--5
-CLASS
-Your classmate needs help, do you help them?
-7
+The weather today isn't very nice. Do you go to class? 
+9
 -10
 CLASS
-There's an open seat in the front row of class, do you sit there?
-2
-0
+You have a midterm coming up, do you skip class to study?
+4
+-6
 CLASS
-It's office hours, do you see your professor?
+Finals week is next week. Do you spend extra time studying?
+14
+-6
+CLASS
+Your classmate wants to study outside of class, do you join them?
 8
 -3
 CLASS
-Your having trouble understanding a concept, do you go to the tutoring center?
-5
--12
+It's your first time in a new class. Do you sit in the front (y) or back (n)?
+4
+-2
 CLASS
-Your professor is late, do you stay?
-2
--10
-Early class, do you go?
-3
+Do you go to class early to meet with your instructor to ask about the current material?
+6
+-4
+CLASS
+Your professor is running late for class. Do you hang around to attend class?
+12
+-14
+CLASS
+You have an early class but really enjoy your sleep. Do you go to class (y) or sleep in (n)?
+5
+-5
+CLASS
+You procrastinated working on a significant homework project. Do you cram and finish it (y) or don't turn it in (n)?
+9
 -7
+CLASS
+Your professor cancels class early. Do you stay for the rest of the time and study?
+8
+-6
+CLASS
+Do you skip class to hangout with your friends that you haven't seen in a while?
+1
+-1
+CLASS
+Do you make friends with your classmates (y) or stick to yourself (n)?
+6
+-4
+CLASS
+You only need 16 credits to graduate, but you don't want to take more than 12. Do you take on the extra workload?
+18
+-14
