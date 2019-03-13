@@ -14,6 +14,16 @@ LIFE
 Do you visit your family in your free time?
 8
 -3
+LIFE
+Your mother is in the hospital, do you visit her?
+3
+-10
+LIFE
+It's your brother's birthday, do you call him?
+5
+-5
+LIFE
+
 JOB
 Do you want to call in sick?
 10
@@ -46,3 +56,66 @@ CLASS
 Do you stay up late doing homework?
 8
 -8
+CLASS
+Quiz today, do you go to class?
+1
+-5
+CLASS
+Your professor canceled class, do you study?
+10
+-5
+CLASS
+There's extra credit, do you do it?
+10
+0
+CLASS
+It's snowing, do you go to class?
+0
+-5
+CLASS
+Midterm coming up, do you skip class to cram?
+3
+-8
+CLASS
+You got a call in class, do you take it?
+0
+-6
+CLASS
+Class are called early, do you stay to study?
+4
+0
+CLASS
+Your study group is meeting, do you go?
+7
+-2
+CLASS
+You procrastinated a paper, do you stay up late to finish it?
+5
+-9
+CLASS14
+You're worried about finals, do you study?
+5
+-5
+CLASS
+Your classmate needs help, do you help them?
+7
+-10
+CLASS
+There's an open seat in the front row of class, do you sit there?
+2
+0
+CLASS
+It's office hours, do you see your professor?
+8
+-3
+CLASS
+Your having trouble understanding a concept, do you go to the tutoring center?
+5
+-12
+CLASS
+Your professor is late, do you stay?
+2
+-10
+Early class, do you go?
+3
+-7
