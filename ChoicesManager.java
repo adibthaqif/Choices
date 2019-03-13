@@ -80,7 +80,11 @@ public class ChoicesManager {
             while(!isRoundOver()) {
                play();
                numEvents++;
+               if(warning()){
+                 break;
+               }
             }
+           
             numEvents = 0;
             rounds++;
             
@@ -265,7 +269,7 @@ public class ChoicesManager {
       System.out.println("-----------------------------------------------------------------------------------------");
       System.out.println("|                         Your current aspect scores are...                             |");
       System.out.println("|\t\t\t\t\t\t       Work: " + AspectMap.get("job") + "\tLife: " + AspectMap.get("life") +
-             "\tSchool: " + AspectMap.get("class") + "\t\t\t\t\t\t\t\t          |");
+             "\t  School: " + AspectMap.get("class") + "\t\t\t\t\t\t\t\t       |");
       System.out.println("-----------------------------------------------------------------------------------------");
       System.out.println();
    }
@@ -279,12 +283,29 @@ public class ChoicesManager {
       System.out.println(current.toString());
       System.out.println("Enter 'y' if yes, 'n' if no");
       String answer = console.nextLine();
-      changeAspect(answer, current,rounds);
+      changeAspect(answer, current);
       int n = new Random().nextInt(3) + 3;//if n = 3, get life, if n = 4, get school
       heap.insert(table.get(n));
       Graveyard.add(current);
+      //return warning(school,work,life);
+      
    
    }
+   
+   public static boolean warning(){
+      boolean x = false;
+      int school = AspectMap.get("class");
+      int work = AspectMap.get("job");
+      int life = AspectMap.get("life");
+      if(school <= 25 || work <= 25 || life <= 25){
+         x = true;
+      }else if(school <= 30 || work <= 30 || life <= 30){
+         System.out.println("WARNING! One or more of your aspects is low!. Be careful or you'll lose the game!");     
+      }
+      return x;
+   
+   }
+   
 
    public static void save() {
       
@@ -322,17 +343,41 @@ public class ChoicesManager {
       }
    }
 
-   private static void changeAspect(String answer, Event event,int round) {
+   private static void changeAspect(String answer, Event event) {
       if(answer.equals(null) || event.equals(null)){
          throw new IllegalArgumentException();
       }
       System.out.println("Event aspect: " + event.aspect.toLowerCase());
       String aspect = event.aspect.toLowerCase();
-   
+      //int val = AspectMap.get(aspect); 
       if (answer.equalsIgnoreCase("y")) {
-         AspectMap.put(aspect, AspectMap.get(aspect) + event.reward);
+         if(aspect.equalsIgnoreCase("life")){
+            AspectMap.put("life",AspectMap.get("life") + event.reward);
+            AspectMap.put("job", AspectMap.get("job") - event.reward/2);
+            AspectMap.put("class",AspectMap.get("class") - event.reward/2);
+            
+         }else if(aspect.equalsIgnoreCase("class")){
+            AspectMap.put("class", AspectMap.get("class") + event.reward);
+            AspectMap.put("life", AspectMap.get("life") - event.reward);
+         
+         }else if(aspect.equalsIgnoreCase("job")){
+            AspectMap.put("job", AspectMap.get("job") + event.reward);
+            AspectMap.put("life", AspectMap.get("life") - event.reward);
+         }
       } else if (answer.equalsIgnoreCase("n")) {
-         AspectMap.put(aspect, AspectMap.get(aspect) + event.punishment);
+         if(aspect.equalsIgnoreCase("life")){
+            AspectMap.put("life", AspectMap.get("life") + event.punishment);
+            AspectMap.put("class", AspectMap.get("school") - event.punishment/2);
+            AspectMap.put("job", AspectMap.get("job") - event.punishment/2);
+         }else if(aspect.equalsIgnoreCase("class")){
+            AspectMap.put("class", AspectMap.get("class") + event.punishment);
+            AspectMap.put("life",AspectMap.get("life") - event.punishment);
+         
+         }else if(aspect.equalsIgnoreCase("job")){
+            AspectMap.put("job", AspectMap.get("job") + event.punishment);
+            AspectMap.put("life", AspectMap.get("life") - event.punishment);
+         }
+        
       }
    }
    
@@ -342,7 +387,7 @@ public class ChoicesManager {
       int s = AspectMap.get("class");
       int w = AspectMap.get("job");
       int l = AspectMap.get("life");
-      if(numEvents != 4|| s <= 25 || w <= 25 || l <= 25 || s >){
+      if(numEvents != 4|| s <= 25 || w <= 25 || l <= 25){
          x = false;
       }
       return x;
